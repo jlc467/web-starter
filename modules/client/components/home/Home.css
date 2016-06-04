@@ -1,0 +1,30 @@
+html {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font: 16px Helvetica, sans-serif;
+  background-color: #3DCAA3;
+  color: #005121;
+  height: 100%;
+}
+
+
+.center-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.center-item {
+  text-align: center;
+  max-width: 50%;
+}
+
+.center-item--top {
+  align-self: flex-start;
+}
+
+.center-item--bottom {
+  align-self: flex-end;
+}
