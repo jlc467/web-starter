@@ -1,6 +1,6 @@
-import React from 'react'
-import './Home.css'
+import React, { PropTypes } from 'react'
 import logo from '../../images/central-logo.svg'
+import './Home.css'
 
 class Home extends React.Component {
   render = () => {

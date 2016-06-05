@@ -19,5 +19,5 @@ const server = process.env.NODE_ENV === 'production'
   : createDevServer(serverConfig)
 
 server.listen(port, () => {
-  console.log('Server listening on port %s, Ctrl+C to stop', port)
+  console.info('🌎  Server listening on port %s, Ctrl+C to stop', port)
 })
