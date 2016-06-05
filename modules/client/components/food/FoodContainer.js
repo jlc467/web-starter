@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react'
-import * as actions from '../../actions/foodActions'
+import * as actions from '../../actions/foodsActions'
 import { connect } from 'react-redux'
 
 
