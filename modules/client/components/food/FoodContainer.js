@@ -3,11 +3,14 @@ import * as actions from '../../actions/foodsActions'
 import { connect } from 'react-redux'
 
 
-const FoodListItem = ({ foodItem, onClick }) => <li onClick={onClick}>{foodItem}</li>
+const FoodListItem = ({ foodItem, onClick }) =>
+  <li data-test={foodItem} onClick={onClick}>{foodItem}</li>
+
 FoodListItem.propTypes = {
   foodItem: PropTypes.string.isRequired,
   onClick: PropTypes.func.isRequired
 }
+
 const FoodList = ({ foodList, eatFood }) => <ul>
   {foodList.map(f =>
     <FoodListItem
@@ -16,6 +19,7 @@ const FoodList = ({ foodList, eatFood }) => <ul>
     />)
   }
 </ul>
+
 FoodList.propTypes = {
   foodList: PropTypes.array.isRequired,
   eatFood: PropTypes.func.isRequired
@@ -31,8 +35,8 @@ class AddFoodInput extends React.Component {
     this.refs.addFoodForm.reset()
   }
   render = () => <form ref="addFoodForm" onSubmit={this.addFood}>
-    <input ref="addFoodInput" />
-    <button type="submit">add</button>
+    <input data-test="add-food-input" ref="addFoodInput" />
+    <button data-test="add-food-button" type="submit">add</button>
   </form>
 }
 

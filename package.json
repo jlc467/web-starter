@@ -5,7 +5,8 @@
     "build-assets": "env NODE_ENV=production webpack -p --json > stats.json",
     "build-lib": "rimraf lib && babel ./modules -d lib --copy-files",
     "lint": "eslint modules",
-    "test": "ava --verbose"
+    "test:watch": "env NODE_ENV=testing ava --watch --verbose",
+    "test:e2e": "env NODE_ENV=testing nightwatch-autorun"
   },
   "dependencies": {
     "autoprefixer": "^6.3.6",
@@ -39,18 +40,25 @@
   "devDependencies": {
     "ava": "^0.15.2",
     "babel-eslint": "^6.0.4",
+    "babel-plugin-react-remove-properties": "^0.2.2",
     "babel-register": "^6.8.0",
     "eslint": "^2.10.2",
     "eslint-config-airbnb": "^9.0.1",
     "eslint-plugin-import": "^1.8.0",
     "eslint-plugin-jsx-a11y": "^1.2.0",
     "eslint-plugin-react": "^5.1.1",
-    "expect": "^1.20.1"
+    "expect": "^1.20.1",
+    "nightwatch-autorun": "^2.3.1"
   },
   "engines": {
     "node": "6"
   },
   "babel": {
+    "env": {
+      "production": {
+        "plugins": ["react-remove-properties"]
+      }
+    },
     "presets": [
       "es2015",
       "react",
@@ -62,6 +70,8 @@
   },
   "ava": {
     "babel": "inherit",
-    "require": ["babel-register"]
+    "require": [
+      "babel-register"
+    ]
   }
 }

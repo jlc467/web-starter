@@ -5,7 +5,7 @@ import webStarterApp from '../reducers'
 
 const configureStore = () => {
   const middlewares = [ thunkMiddleware ]
-  if (process.env.NODE_ENV !== 'production') {
+  if (process.env.NODE_ENV === 'development') {
     middlewares.push(createLogger())
   }
   return createStore(
